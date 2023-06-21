@@ -10,7 +10,24 @@ from os import path, remove
 import unittest
 from unittest.mock import patch
 from time import sleep
+import os
 
+
+class test_state(test_basemodel):
+    """ states test class"""
+
+    def __init__(self, *args, **kwargs):
+        """ state test class init"""
+        super().__init__(*args, **kwargs)
+        self.name = "State"
+        self.value = State
+
+    def test_name3(self):
+        """ testing state name attr"""
+        new = self.value()
+        self.assertEqual(type(new.name), str if
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None))
 
 class Test_instanceState(unittest.TestCase):
 
